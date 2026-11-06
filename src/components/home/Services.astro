@@ -1,0 +1,64 @@
+---
+const services = [
+  {
+    number: "01",
+    title: "Arquitectura de sistemas",
+    copy: "Bases resilientes para productos que no pueden darse el lujo de fallar.",
+    tag: "NÚCLEO / 01",
+  },
+  {
+    number: "02",
+    title: "Software a medida",
+    copy: "Herramientas hechas para convertir operaciones complejas en una ventaja.",
+    tag: "DESARROLLO / 02",
+  },
+  {
+    number: "03",
+    title: "APIs de alto rendimiento",
+    copy: "Sistemas rápidos y observables, diseñados para una demanda constante.",
+    tag: "ESCALA / 03",
+  },
+  {
+    number: "04",
+    title: "Auditoría técnica",
+    copy: "Un análisis directo del código, los sistemas y las decisiones que te frenan.",
+    tag: "DIAGNÓSTICO / 04",
+  },
+];
+---
+
+      <section id="systems" class="w-full border-b-4 border-black">
+        <div class="border-b-4 border-black bg-[#c9c5bd] p-5 md:p-8">
+          <h2
+            class="text-4xl font-black uppercase leading-[0.9] tracking-[-0.06em] md:text-7xl"
+          >
+            Problemas duros. Soluciones más sólidas.
+          </h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4">
+          {
+            services.map((service, i) => (
+              <article
+                class={`group flex min-h-[280px] flex-col justify-between bg-surface border-b-4 border-black p-5 md:p-8 lg:border-b-0 lg:border-x-2 transition-colors hover:bg-primary hover:text-white`}
+              >
+                <div>
+                  <div class="mb-12 flex items-start justify-between">
+                    <span class="font-mono text-sm font-bold">
+                      {service.number}/
+                    </span>
+                    <span class="font-mono text-[10px] font-bold">
+                      EL YUNQUE
+                    </span>
+                  </div>
+                  <h3 class="max-w-[220px] text-3xl font-black uppercase leading-[0.9] tracking-[-0.05em]">
+                    {service.title}
+                  </h3>
+                </div>
+                <p class="max-w-[260px] text-sm font-medium leading-snug">
+                  {service.copy}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>

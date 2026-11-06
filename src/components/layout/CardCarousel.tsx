@@ -1,0 +1,150 @@
+import { IconArrowLeft } from "@tabler/icons-astro";
+import { useState } from "react";
+
+const accent = "#9f303a";
+
+const projects = [
+  {
+    name: "FORJA / 001",
+    title: "Kinetic",
+    type: "DESARROLLO MOBILE FULL-STACK",
+    source: '',
+    detail:
+      "Aplicación móvil enfocada al seguimiento de entrenamientos físicos, gestión de rutinas personalizadas y geolocalización de gimnasios cercanos.",
+    tags: ["React Native", "Expo", "Supabase", "Vue"]
+  },
+  {
+    name: "FORJA / 002",
+    title: "Munyaal",
+    type: "PRACTICANTE DE DESARROLLO DE SOFTWARE",
+    source: '',
+    detail:
+      "Prácticas profesionales donde refactoricé sistemas TPV en Vue/TS, co-desarrollé el frontend operativo de Ayoatl y construí APIs REST contenerizadas en NestJS, Next.js y Docker.",
+    tags: ["TypeScript", "NestJS", "Next.js", "Docker"]
+  },
+  {
+    name: "FORJA / 003",
+    title: "Mujeres y Turismo",
+    type: "PLATAFORMA DE INVESTIGACIÓN & DIAGNÓSTICO",
+    source: '',
+    detail:
+      "Plataforma web con test interactivo que evalúa condiciones laborales femeninas y genera recomendaciones personalizadas, con un dashboard analítico para que las investigadoras auditen y gestionen los datos.",
+    tags: ["Next.js", "NestJS", "Postgres", "Neon"]
+  }
+];
+
+export default function ProjectCarousel() {
+  const [projectIndex, setProjectIndex] = useState(0);
+
+  const nextProject = () =>
+    setProjectIndex((current) => (current + 1) % projects.length);
+  const previousProject = () =>
+    setProjectIndex(
+      (current) => (current - 1 + projects.length) % projects.length,
+    );
+
+  // Mostramos 3 cards a partir del índice actual (o 1 en móvil mediante CSS)
+  const visibleProjects = [0, 1, 2].map(
+    (offset) => projects[(projectIndex + offset) % projects.length],
+  );
+
+  return (
+    <>
+      {/* Estructura Principal: [ BOTÓN IZQ ] [ CARDS ] [ BOTÓN DER ] */}
+      <div className="grid grid-cols-[50px_1fr_50px] md:grid-cols-[80px_1fr_80px]">
+        {/* Botón Anterior (Alto Completo) */}
+        <button
+          onClick={previousProject}
+          aria-label="Proyecto anterior"
+          className="group flex items-center justify-center border-r-4 border-black bg-surface transition-all hover:bg-primary hover:text-white active:bg-black"
+        >
+          <span className="font-mono text-2xl font-black transition-transform group-hover:-translate-x-1 md:text-4xl">
+            &lt;
+          </span>
+        </button>
+
+        {/* Viewport de Cards — Brutalismo Industrial */}
+        <div className="p-4 md:p-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {visibleProjects.map((card, idx) => (
+              <article
+                key={`${card.name}-${idx}`}
+                className={`group relative flex flex-col justify-between border-4 border-black bg-surface p-6 transition-all duration-150 hover:bg-primary hover:text-white md:p-8 ${
+                  idx > 0 ? "hidden lg:flex" : "flex"
+                }`}
+              >
+                {/* Header de la tarjeta */}
+                <div className="flex items-center justify-between border-b-2 border-black pb-4 group-hover:border-white/30">
+                  <span className="font-mono text-xs font-black uppercase tracking-widest">
+                    [ {card.name} ]
+                  </span>
+                </div>
+
+                {/* Visual / Frame Técnico (Reemplazo o styling de imagen) */}
+                <div className="relative my-6 aspect-video w-full overflow-hidden border-2 border-black bg-neutral-900 group-hover:border-white">
+                  {card.source ? (
+                    <img
+                      src={card.source}
+                      alt={card.title}
+                      className="h-full w-full object-cover grayscale contrast-125 transition-all duration-200 group-hover:grayscale-0"
+                    />
+                  ) : (
+                    /* Fallback brutalista si no hay imagen */
+                    <div className="flex h-full w-full flex-col justify-between p-4 font-mono text-[10px] text-neutral-400">
+                      <div className="flex justify-between">
+                        <span>SYS_ID // 0{idx + 1}</span>
+                        <span className="text-emerald-500">● LIVE</span>
+                      </div>
+                      <div className="text-center font-black uppercase tracking-widest text-white text-xs">
+                        ARCH // {card.name}
+                      </div>
+                      <div>ENV // PRODUCTION</div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Contenido principal */}
+                <div className="flex flex-1 flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-black uppercase leading-none tracking-tight md:text-3xl">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 font-mono text-xs font-bold leading-relaxed opacity-90 md:text-sm">
+                      {card.detail}
+                    </p>
+                  </div>
+
+                  {/* Footer de la Card / Stack & CTA */}
+                  <div className="mt-6 border-t-2 border-black/20 pt-4 group-hover:border-white/20">
+                    {card.tags && (
+                      <div className="mb-4 flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+                        {card.tags.map((tag, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="border border-black px-1.5 py-0.5 group-hover:border-white"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        {/* Botón Siguiente (Alto Completo) */}
+        <button
+          onClick={nextProject}
+          aria-label="Proyecto siguiente"
+          className="group flex items-center justify-center border-l-4 border-black bg-surface transition-all hover:bg-primary hover:text-white active:bg-black"
+        >
+          <span className="font-mono text-2xl font-black transition-transform group-hover:translate-x-1 md:text-4xl">
+            &gt;
+          </span>
+        </button>
+      </div>
+    </>
+  );
+}
