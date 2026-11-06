@@ -51,7 +51,7 @@ export default function ProjectCarousel() {
   return (
     <>
       {/* Estructura Principal: [ BOTÓN IZQ ] [ CARDS ] [ BOTÓN DER ] */}
-      <div className="grid grid-cols-[50px_1fr_50px] md:grid-cols-[80px_1fr_80px]">
+      <div className="grid w-full max-w-full grid-cols-[36px_minmax(0,1fr)_36px] md:grid-cols-[80px_1fr_80px]">
         {/* Botón Anterior (Alto Completo) */}
         <button
           onClick={previousProject}
@@ -64,12 +64,12 @@ export default function ProjectCarousel() {
         </button>
 
         {/* Viewport de Cards — Brutalismo Industrial */}
-        <div className="p-4 md:p-8">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="min-w-0 max-w-full p-2 sm:p-4 md:p-8">
+          <div className="grid min-w-0 grid-cols-1 gap-3 sm:gap-6 lg:grid-cols-3">
             {visibleProjects.map((card, idx) => (
               <article
                 key={`${card.name}-${idx}`}
-                className={`group relative flex flex-col justify-between border-4 border-black bg-surface p-6 transition-all duration-150 hover:bg-primary hover:text-white md:p-8 ${
+                className={`group relative flex min-w-0 max-w-full flex-col justify-between border-4 border-black bg-surface p-3 transition-all duration-150 hover:bg-primary hover:text-white sm:p-5 md:p-8 ${
                   idx > 0 ? "hidden lg:flex" : "flex"
                 }`}
               >
@@ -106,7 +106,7 @@ export default function ProjectCarousel() {
                 {/* Contenido principal */}
                 <div className="flex flex-1 flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-black uppercase leading-none tracking-tight md:text-3xl">
+                    <h3 className="text-xl font-black uppercase leading-none tracking-tight sm:text-2xl md:text-3xl">
                       {card.title}
                     </h3>
                     <p className="mt-3 font-mono text-xs font-bold leading-relaxed opacity-90 md:text-sm">
