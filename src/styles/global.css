@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #9F303A;
+  --color-surface: #e8e6e1;
+  --font-display: "Chakra Petch", sans-serif;
+  --font-sans: "Chakra Petch", sans-serif;
+}
