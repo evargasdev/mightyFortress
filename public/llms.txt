@@ -1,0 +1,43 @@
+# El Yunque x Erick Vargas
+
+> El Yunque x Erick Vargas es una firma de desarrollo de software a la medida liderada por Erick Vargas desde Playa del Carmen y la Riviera Maya. Especializada en la creación de aplicaciones web, APIs robustas y plataformas digitales optimizadas para escalar negocios en todo México.
+
+## Información General
+
+- [Inicio / Portafolio](https://erickvargas.dev): Página principal con la presentación de servicios, proyectos destacados, stack tecnológico y vías de contacto directo.
+
+## Servicios Principales
+
+- **Desarrollo de Software a la Medida:** Diseño e ingeniería de aplicaciones web y plataformas digitales adaptadas a las necesidades específicas de cada cliente.
+- **Desarrollo Fullstack & APIs:** Arquitectura de microservicios, APIs REST contenerizadas e interfaces modernas tipo SPA/SSR.
+- **Consultoría & Refactorización:** Diagnóstico de código, migración de sistemas legacy a arquitecturas escalables bajo principios SOLID y optimización de rendimiento.
+
+## Stack Tecnológico Principal
+
+- **Lenguajes & Runtimes:** TypeScript, JavaScript, Node.js.
+- **Frontend & Frameworks Web:** Next.js, Astro, React, Vue.js, Tailwind CSS, Flowbite.
+- **Backend & Bases de Datos:** NestJS, PostgreSQL, TypeORM, Neon, Supabase.
+- **Mobile:** React Native, Expo.
+- **Infraestructura, DevOps & Herramientas:** Docker, Kubernetes, Linux (Arch Linux), Git.
+
+## Proyectos Destacados (FORJA)
+
+- **FORJA / 001 — Kinetic (Desarrollo Mobile Full-Stack):** Aplicación móvil enfocada al seguimiento de entrenamientos físicos, gestión de rutinas personalizadas y geolocalización de gimnasios cercanos. *(Stack: React Native, Expo, Supabase, Vue)*.
+- **FORJA / 002 — Munyaal (Desarrollo de Software):** Refactorización de sistemas TPV en Vue/TS reduciendo código monolítico, co-desarrollo del frontend operativo Ayoatl e ingeniería de APIs REST contenerizadas. *(Stack: TypeScript, NestJS, Next.js, Docker)*.
+- **FORJA / 003 — Mujeres y Turismo (Plataforma de Investigación & Diagnóstico):** Plataforma web con test interactivo de 50 preguntas que evalúa condiciones laborales femeninas en la Riviera Maya, respaldada por un dashboard analítico para investigadoras. *(Stack: Next.js, NestJS, Postgres, Neon)*.
+
+## Áreas de Cobertura & Alcance
+
+- **Local & Regional:** Playa del Carmen, Tulum, Cancún, Puerto Morelos y toda la Riviera Maya.
+- **Nacional e Internacional:** Cobertura de desarrollo en todo México y proyectos remotos internacionales.
+
+## Contacto Directo
+
+- **Correo electrónico:** [erickdanielvargascorona@gmail.com](mailto:erickdanielvargascorona@gmail.com)
+- **Teléfono / WhatsApp:** [+52 984 320 9601](tel:+529843209601)
+- **Sitio Web:** [https://erickvargas.dev](https://erickvargas.dev)
+
+## Información Legal
+
+- [Aviso de Privacidad](https://erickvargas.dev/aviso-de-privacidad): Términos sobre la recopilación, tratamiento y protección de datos personales.
+- [Términos y Condiciones](https://erickvargas.dev/terminos-y-condiciones): Condiciones de uso del sitio web y contratación de servicios de software.
