@@ -1,5 +1,8 @@
 ---
+import { SITE } from "../../data/site";
+import { PAGE_META } from "../../data/seo";
 
+const [brand, name] = SITE.nombre.split(" X ");
 ---
 
 <header
@@ -8,9 +11,9 @@
   <div
     class="mx-auto flex w-full max-w-full items-center justify-between px-5 py-4 md:px-8"
   >
-    <a href="/" class="text-xl font-bold md:text-xl"
-      >EL YUNQUE <span class="hidden sm:inline"
-        ><span class="text-primary">//</span> ERICK VARGAS</span
+    <a href={PAGE_META.home.path} class="text-xl font-bold uppercase md:text-xl"
+      >{brand} <span class="hidden sm:inline"
+        ><span class="text-primary">//</span> {name}</span
       ></a
     >
     <nav class="gap-2 text-sm font-bold uppercase sm:flex">
