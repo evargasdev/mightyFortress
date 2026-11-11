@@ -1,30 +1,5 @@
 ---
-const services = [
-  {
-    number: "01",
-    title: "Arquitectura de sistemas",
-    copy: "Bases resilientes para productos que no pueden darse el lujo de fallar.",
-    tag: "NÚCLEO / 01",
-  },
-  {
-    number: "02",
-    title: "Software a medida",
-    copy: "Herramientas hechas para convertir operaciones complejas en una ventaja.",
-    tag: "DESARROLLO / 02",
-  },
-  {
-    number: "03",
-    title: "APIs de alto rendimiento",
-    copy: "Sistemas rápidos y observables, diseñados para una demanda constante.",
-    tag: "ESCALA / 03",
-  },
-  {
-    number: "04",
-    title: "Auditoría técnica",
-    copy: "Un análisis directo del código, los sistemas y las decisiones que te frenan.",
-    tag: "DIAGNÓSTICO / 04",
-  },
-];
+import { SERVICES } from "../../data/content";
 ---
 
 <section id="systems" class="w-full border-black md:border-b-4">
@@ -35,7 +10,7 @@ const services = [
   </div>
   <div class="grid sm:grid-cols-1 lg:grid-cols-4">
     {
-      services.map((service, i) => (
+      SERVICES.map((service) => (
         <article class="group flex flex-col md:min-h-62.5 justify-between bg-surface border-b-4 border-black p-5 md:p-8 lg:border-b-0 lg:border-x-2 transition-colors hover:bg-primary hover:text-white">
           <div>
             <div class="mb-6 md:mb-12 flex items-start justify-between">
