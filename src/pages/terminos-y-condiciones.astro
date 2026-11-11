@@ -152,16 +152,24 @@ const lastUpdated = "Noviembre 2026";
     >
       <a
         href="/"
-        class="border-2 border-black px-4 py-2 transition-colors hover:bg-primary hover:text-white"
-      >
-        ← Volver al inicio
+        class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-surface px-3 py-4 font-mono text-xs font-bold uppercase transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
+        ><span
+          aria-hidden="true"
+          class="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          >↖</span
+        ><span>Volver al inicio</span>
       </a>
+
       <a
         href="/aviso-de-privacidad"
-        class="transition-colors hover:text-primary"
+        class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-surface px-3 py-4 font-mono text-xs font-bold uppercase transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
+        ><span>Aviso de Privacidad</span>
+        <span
+          aria-hidden="true"
+          class="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          >↗</span
+        ></a
       >
-        Ver Aviso de Privacidad →
-      </a>
     </footer>
   </main>
 </Layout>
