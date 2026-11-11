@@ -1,7 +1,3 @@
----
-const accent = "#9f303a";
----
-
 <section id="top" class="w-full border-black">
   <div class="grid min-h-[calc(100vh-73px)] grid-rows-[1fr_auto]">
     <div
@@ -10,10 +6,10 @@ const accent = "#9f303a";
       <!-- Líneas diagonales -->
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0">
         <span
-          class="absolute -top-[10%] right-[7%] h-[120%] w-[30px] rotate-[28deg] bg-primary opacity-100"
+          class="absolute top-[-10%] right-[-4%] md:right-[7%] h-[120%] w-7.5 rotate-28 bg-primary opacity-100"
         ></span>
         <span
-          class="absolute -top-[10%] right-[13%] h-[120%] w-[30px] rotate-[28deg] bg-primary opacity-100"
+          class="absolute top-[-10%] right-[-20%] md:right-[13%] h-[120%] w-7.5 rotate-28 bg-primary opacity-100"
         ></span>
       </div>
       <p
@@ -23,12 +19,14 @@ const accent = "#9f303a";
         ]
       </p>
       <h1
-        class="relative z-10 w-full max-w-[1200px] text-[clamp(2.25rem,11vw,4.5rem)] font-black uppercase leading-[0.82] tracking-[-0.08em] sm:text-[11vw] sm:leading-[0.78] sm:tracking-[-0.09em] md:text-[10.5vw]"
+        class="relative z-10 w-full max-w-300 text-4xl font-black uppercase leading-[0.82] tracking-[-0.08em] sm:text-6xl sm:leading-[0.78] sm:tracking-[-0.04em] md:text-9xl"
       >
-        Software<br /><span style={{ color: accent }}>Inquebrantable</span>
+        Fábrica de<br />Software<br /><span class="text-primary"
+          >Inquebrantable</span
+        >
       </h1>
       <p
-        class="relative z-10 mt-8 max-w-2xl font-mono text-xs font-bold uppercase leading-relaxed md:text-sm"
+        class="relative z-10 mt-8 max-w-2xl font-mono text-xs font-bold uppercase leading-relaxed md:text-base"
       >
         Forjamos infraestructura pesada para sistemas críticos. APIs
         resilientes, servicios y aplicaciones web blindadas para transformar tu
@@ -38,23 +36,33 @@ const accent = "#9f303a";
       <div class="relative z-10 mt-8 flex flex-wrap gap-3">
         <a
           href="#work"
-          class="w-full border-2 border-black bg-black px-3 py-4 text-center font-mono text-xs font-bold uppercase text-surface hover:bg-primary hover:text-black sm:w-auto sm:px-5"
-          >VER CÓDIGO & PROYECTOS ↗</a
+          class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-black px-3 py-4 font-mono text-xs font-bold uppercase text-surface transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
+          ><span>VER CÓDIGO & PROYECTOS</span>
+          <span
+            aria-hidden="true"
+            class="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            >↗</span
+          ></a
         >
         <a
           href="#contact"
-          class="w-full border-2 border-black bg-surface px-3 py-4 text-center font-mono text-xs font-bold uppercase hover:bg-primary sm:w-auto sm:px-5"
-          >DESPLEGAR PROYECTO ↗</a
+          class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-surface px-3 py-4 font-mono text-xs font-bold uppercase transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
+          ><span>DESPLEGAR PROYECTO</span>
+          <span
+            aria-hidden="true"
+            class="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            >↗</span
+          ></a
         >
       </div>
     </div>
     <div
-      class="grid border-t-4 border-black font-mono text-[10px] font-bold uppercase sm:grid-cols-2"
+      class="grid border-t-4 border-black font-mono text-xs font-bold uppercase sm:grid-cols-2"
     >
       <div class="border-b-2 border-black p-4 sm:border-b-0 sm:border-r-2">
         [ NÚCLEO ESTABLE <span class="text-primary">//</span> LATENCIA CERO ]
       </div>
-      <div class="p-4">BAJAR PARA INSPECCIONAR</div>
+      <div class="p-4 text-primary">[ 01 // LOS SERVICIOS ]</div>
     </div>
   </div>
 </section>
