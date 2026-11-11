@@ -1,51 +1,19 @@
-import { IconArrowLeft } from "@tabler/icons-astro";
 import { useState } from "react";
-
-const accent = "#9f303a";
-
-const projects = [
-  {
-    name: "FORJA / 001",
-    title: "Kinetic",
-    type: "DESARROLLO MOBILE FULL-STACK",
-    source: '',
-    detail:
-      "Aplicación móvil enfocada al seguimiento de entrenamientos físicos, gestión de rutinas personalizadas y geolocalización de gimnasios cercanos.",
-    tags: ["React Native", "Expo", "Supabase", "Vue"]
-  },
-  {
-    name: "FORJA / 002",
-    title: "Munyaal",
-    type: "PRACTICANTE DE DESARROLLO DE SOFTWARE",
-    source: '',
-    detail:
-      "Prácticas profesionales donde refactoricé sistemas TPV en Vue/TS, co-desarrollé el frontend operativo de Ayoatl y construí APIs REST contenerizadas en NestJS, Next.js y Docker.",
-    tags: ["TypeScript", "NestJS", "Next.js", "Docker"]
-  },
-  {
-    name: "FORJA / 003",
-    title: "Mujeres y Turismo",
-    type: "PLATAFORMA DE INVESTIGACIÓN & DIAGNÓSTICO",
-    source: '',
-    detail:
-      "Plataforma web con test interactivo que evalúa condiciones laborales femeninas y genera recomendaciones personalizadas, con un dashboard analítico para que las investigadoras auditen y gestionen los datos.",
-    tags: ["Next.js", "NestJS", "Postgres", "Neon"]
-  }
-];
+import { PROJECTS } from "../../data/content";
 
 export default function ProjectCarousel() {
   const [projectIndex, setProjectIndex] = useState(0);
 
   const nextProject = () =>
-    setProjectIndex((current) => (current + 1) % projects.length);
+    setProjectIndex((current) => (current + 1) % PROJECTS.length);
   const previousProject = () =>
     setProjectIndex(
-      (current) => (current - 1 + projects.length) % projects.length,
+      (current) => (current - 1 + PROJECTS.length) % PROJECTS.length,
     );
 
   // Mostramos 3 cards a partir del índice actual (o 1 en móvil mediante CSS)
   const visibleProjects = [0, 1, 2].map(
-    (offset) => projects[(projectIndex + offset) % projects.length],
+    (offset) => PROJECTS[(projectIndex + offset) % PROJECTS.length],
   );
 
   return (
@@ -82,7 +50,7 @@ export default function ProjectCarousel() {
 
                 {/* Visual / Frame Técnico (Reemplazo o styling de imagen) */}
                 <div className="relative my-6 aspect-video w-full overflow-hidden border-2 border-black bg-neutral-900 group-hover:border-white">
-                  {card.source ? (
+                  {"source" in card && card.source ? (
                     <img
                       src={card.source}
                       alt={card.title}
