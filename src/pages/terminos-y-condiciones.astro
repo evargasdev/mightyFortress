@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { PAGE_META } from "../data/seo";
+import { SITE } from "../data/site";
 
 const lastUpdated = "Noviembre 2026";
 ---
 
 <Layout
-  title="Términos y Condiciones | El Yunque x Erick Vargas"
-  description="Términos y Condiciones de uso del sitio web erickvargas.dev y contratación de servicios de desarrollo de software."
+  title={PAGE_META.terms.title}
+  description={PAGE_META.terms.description}
 >
   <main
     class="min-h-screen mt-10 w-full border-y-4 border-black bg-surface px-4 py-12 text-black sm:px-8 sm:py-16"
@@ -34,7 +36,7 @@ const lastUpdated = "Noviembre 2026";
         class="mt-5 max-w-2xl text-sm leading-relaxed text-neutral-700 sm:text-base"
       >
         Condiciones generales que regulan el acceso y uso del portafolio web <span
-          class="font-mono text-neutral-800">erickvargas.dev</span
+          class="font-mono text-neutral-800">{SITE.url.replace(/^https?:\/\//, "")}</span
         >, así como las bases para la contratación de servicios profesionales de
         desarrollo de software.
       </p>
@@ -51,8 +53,9 @@ const lastUpdated = "Noviembre 2026";
           <span class="font-mono text-primary">01.</span> Aceptación de los Términos
         </h2>
         <p>
-          Al acceder y navegar en <strong>erickvargas.dev</strong>, operado por <strong
-            >Erick Daniel Vargas Corona (El Yunque x Erick Vargas)</strong
+          Al acceder y navegar en <strong>{SITE.url.replace(/^https?:\/\//, "")}</strong>,
+          operado por <strong
+            >{SITE.founder} ({SITE.nombre})</strong
           >, usted acepta quedar sujeto a los presentes Términos y Condiciones.
           Si no está de acuerdo con alguna de estas disposiciones, le pedimos
           abstenerse de utilizar este sitio.
@@ -69,8 +72,7 @@ const lastUpdated = "Noviembre 2026";
           Este sitio web tiene un carácter exclusivamente informativo y de
           portafolio profesional para presentar proyectos, capacidades técnicas
           y ofrecer servicios de desarrollo de software a la medida,
-          arquitectura web, APIs y consultoría tecnológica en Playa del Carmen,
-          la Riviera Maya, todo México y el extranjero.
+          arquitectura web, APIs y consultoría tecnológica. {SITE.coverageDescription}
         </p>
       </section>
 
@@ -139,7 +141,7 @@ const lastUpdated = "Noviembre 2026";
           Términos y Condiciones, las partes se someten expresamente a las leyes
           vigentes en los Estados Unidos Mexicanos y a la jurisdicción de los
           tribunales competentes en <strong
-            >Playa del Carmen, Solidaridad, Quintana Roo</strong
+            >{SITE.direccion.replace(", México", "")}</strong
           >, renunciando a cualquier otro fuero que pudiera corresponderles por
           razón de sus domicilios presentes o futuros.
         </p>
@@ -161,7 +163,7 @@ const lastUpdated = "Noviembre 2026";
       </a>
 
       <a
-        href="/aviso-de-privacidad"
+        href={PAGE_META.privacy.path}
         class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-surface px-3 py-4 font-mono text-xs font-bold uppercase transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
         ><span>Aviso de Privacidad</span>
         <span

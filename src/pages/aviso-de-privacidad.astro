@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { PAGE_META } from "../data/seo";
+import { SITE, TELEFONO_PRINCIPAL } from "../data/site";
 
 const lastUpdated = "Noviembre 2026";
 ---
 
 <Layout
-  title="Aviso de Privacidad | El Yunque x Erick Vargas"
-  description="Aviso de Privacidad Integral sobre el tratamiento y protección de datos personales en erickvargas.dev."
+  title={PAGE_META.privacy.title}
+  description={PAGE_META.privacy.description}
 >
   <main
     class="min-h-screen mt-10 w-full border-y-4 border-black bg-surface px-4 py-12 text-black sm:px-8 sm:py-16"
@@ -51,12 +53,12 @@ const lastUpdated = "Noviembre 2026";
           Responsable
         </h2>
         <p>
-          <strong>Erick Daniel Vargas Corona</strong> (operando comercialmente bajo
-          la marca <strong>El Yunque x Erick Vargas</strong>), con domicilio en
-          Playa del Carmen, Solidaridad, Quintana Roo, México, y sitio web <a
-            href="https://erickvargas.dev"
+          <strong>{SITE.founder}</strong> (operando comercialmente bajo la marca
+          <strong>{SITE.nombre}</strong>), con domicilio en {SITE.direccion} y sitio
+          web <a
+            href={SITE.url}
             class="text-primary underline transition-colors hover:text-black"
-            >https://erickvargas.dev</a
+            >{SITE.url}</a
           >, es el responsable del uso y protección de sus datos personales.
         </p>
       </section>
@@ -156,13 +158,15 @@ const lastUpdated = "Noviembre 2026";
         >
           <p>
             Correo: <a
-              href="mailto:erickdanielvargascorona@gmail.com"
+                href={`mailto:${SITE.email}`}
               class="text-primary hover:underline"
-              >erickdanielvargascorona@gmail.com</a>
+                >{SITE.email}</a>
           </p>
           <p>
-            Teléfono: <a href="tel:+529843209601" class="hover:underline"
-              >+52 984 320 9601</a>
+              Teléfono: <a
+                href={TELEFONO_PRINCIPAL.href}
+                class="hover:underline"
+                >+52 {TELEFONO_PRINCIPAL.value}</a>
           </p>
         </div>
       </section>
@@ -201,7 +205,7 @@ const lastUpdated = "Noviembre 2026";
       </a>
 
       <a
-        href="/terminos-y-condiciones"
+        href={PAGE_META.terms.path}
         class="group inline-flex w-full flex-wrap items-center justify-between gap-2 border-2 border-black bg-surface px-3 py-4 font-mono text-xs font-bold uppercase transition-all hover:bg-primary hover:text-white sm:w-auto sm:gap-4 sm:px-5 md:text-base"
         ><span>Términos y condiciones</span>
         <span
