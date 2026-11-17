@@ -8,17 +8,26 @@ import {
   WEBSITE_ID,
 } from "../../data/seo";
 import { SITE } from "../../data/site";
+import { SERVICES } from "../../data/content";
 
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title = PAGE_META.home.title, description = PAGE_META.home.description } =
-  Astro.props;
+const {
+  title = PAGE_META.home.title,
+  description = PAGE_META.home.description,
+  noindex = false,
+} = Astro.props;
 
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const canonicalUrl = new URL(pathname, SITE_URL).href;
+const socialImage = OG_IMAGE.url;
+const robotsContent = noindex
+  ? "noindex, follow"
+  : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -27,21 +36,39 @@ const structuredData = {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
       name: SITE.nombre,
+      description: SITE.description,
       url: `${SITE_URL}/`,
       logo: ORGANIZATION_LOGO,
       email: SITE.email,
       telephone: SITE.telefono,
+      areaServed: SITE.areasServed.map(({ type, name }) => ({
+        "@type": type,
+        name,
+      })),
       sameAs: Object.values(SITE.socialLinks),
-      founder: {
-        "@type": "Person",
-        name: SITE.founder,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: SITE.email,
+        telephone: SITE.telefono,
+        availableLanguage: ["Spanish", "English"],
       },
+      founder: { "@id": `${SITE_URL}/#founder` },
+      knowsAbout: SERVICES.map(({ title }) => title),
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#founder`,
+      name: SITE.founder,
+      worksFor: { "@id": ORGANIZATION_ID },
+      sameAs: Object.values(SITE.socialLinks),
     },
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       url: `${SITE_URL}/`,
       name: SITE.nombre,
+      description: SITE.description,
       publisher: { "@id": ORGANIZATION_ID },
       inLanguage: "es-MX",
     },
@@ -57,6 +84,10 @@ const structuredData = {
     },
   ],
 };
+const structuredDataJson = JSON.stringify(structuredData).replace(
+  /</g,
+  "\\u003c",
+);
 ---
 
 <meta charset="utf-8" />
@@ -69,6 +100,8 @@ const structuredData = {
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content={SITE.founder} />
+<meta name="robots" content={robotsContent} />
 <link rel="canonical" href={canonicalUrl} />
 <meta name="theme-color" content="#9F303A" />
 <meta property="og:locale" content="es_MX" />
@@ -77,7 +110,7 @@ const structuredData = {
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={OG_IMAGE.url} />
+<meta property="og:image" content={socialImage} />
 <meta property="og:image:width" content={String(OG_IMAGE.width)} />
 <meta property="og:image:height" content={String(OG_IMAGE.height)} />
 <meta property="og:image:type" content={OG_IMAGE.type} />
@@ -86,6 +119,6 @@ const structuredData = {
 <meta name="twitter:url" content={canonicalUrl} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={OG_IMAGE.url} />
+<meta name="twitter:image" content={socialImage} />
 <meta name="twitter:image:alt" content={OG_IMAGE.alt} />
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={structuredDataJson} />

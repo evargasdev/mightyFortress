@@ -3,12 +3,24 @@ import Footer from "../components/layout/Footer.astro";
 import Navbar from "../components/layout/Navbar.astro";
 import BaseHead from "../components/layout/BaseHead.astro";
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es-MX">
   <head>
-    <BaseHead {...Astro.props} />
+    <BaseHead
+      title={title}
+      description={description}
+      noindex={noindex}
+    />
   </head>
   <script
     is:inline
