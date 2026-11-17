@@ -8,8 +8,6 @@ export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const ORGANIZATION_LOGO = new URL(SITE.logo, SITE_URL).href;
 
-export const DEFAULT_DESCRIPTION = SITE.description;
-
 export const OG_IMAGE = {
   url: new URL(SITE.socialImage, SITE_URL).href,
   width: 1210,
@@ -21,8 +19,8 @@ export const OG_IMAGE = {
 export const PAGE_META = {
   home: {
     path: "/",
-    title: "Desarrollo de Software a la Medida | El Yunque",
-    description: DEFAULT_DESCRIPTION,
+    title: "Desarrollo de Software a la Medida | El Yunque x Erick Vargas",
+    description: "Desarrollo de software a la medida, aplicaciones web y APIs por Erick Vargas desde Playa del Carmen para negocios en México y proyectos internacionales remotos.",
   },
   privacy: {
     path: "/aviso-de-privacidad",
